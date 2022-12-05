@@ -5,6 +5,7 @@ const cors = require("cors")
 const app = express()
 morgan.token("exercise",function (req,res){return JSON.stringify(req.body)})
 app.use(cors())
+app.use(express.static('build'))//Load the static frontend page
 app.use(express.json())
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :exercise"))
 
